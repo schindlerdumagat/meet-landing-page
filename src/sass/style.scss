@@ -1,0 +1,241 @@
+@use 'reset';
+@use 'variables' as *;
+@use 'mixins' as *;
+
+body {
+    font-family: $ff-main;
+    font-size: $fs-body;
+    background-color: $white;
+    color: $slate-600;
+}
+
+.logo {
+    margin: $space-600 auto 0;
+}
+
+.number {
+    display: grid;
+    place-items: center;
+    position: relative;
+    font-family: "Red Hat Display", serif;
+    font-weight: 900;
+    line-height: 1.5;
+    color: #87879D;
+    border: 1px solid #D1D1DF;
+    border-radius: 9999px;
+    width: 56px;
+    height: 56px;
+}
+
+.number::before {
+    content: "";
+    position: absolute;
+    top: -80px;
+    height: 80px;
+    border-right: 1px solid #D1D1DF;
+}
+
+.main {
+    max-width: 94rem;
+    margin: 0 auto;
+}
+
+.hero {
+    padding: $space-800 0 $space-400;
+
+    &__img-mobile {
+        background-image: url("/public/assets/tablet/image-hero.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        min-height: clamp(160px, 40vw, 303px);
+        margin-bottom: $space-600;
+
+        @media screen and (min-width: 90rem) {
+            display: none;
+        }
+    }
+
+    @media screen and (min-width: 90rem) {
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: $space-400;
+        overflow: hidden;
+
+        &__img-desktop--left {
+            background-image: url("/public/assets/desktop/image-hero-left.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: right;
+            position: relative;
+            left: -130px;
+            height: 90%;
+        }
+        
+        &__img-desktop--right {
+            background-image: url("/public/assets/desktop/image-hero-right.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: left;
+            position: relative;
+            right: -130px;
+            height: 90%;
+        }
+    }
+
+    &__text-content {
+        text-align: center;
+        padding: 0 2.188rem;
+        max-inline-size: 45ch;
+        margin: 0 auto;
+
+        @media screen and (min-width: 90rem) {
+            display: inline-block;
+            padding: 0;
+        }
+    }
+
+    &__title {
+        @include heading($fontSize: $fs-h1, $color: $slate-900);
+        margin-bottom: $space-300;
+    }
+
+    &__description {
+        margin-bottom: 1.5rem;
+    }
+
+    &__buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+
+        @media screen and (min-width: 48rem) {
+            flex-direction: row;
+        }
+    }
+
+    &__download-btn {
+        @include button($bgColor: $cyan-600)
+    }
+
+    &__info-btn {
+        @include button($bgColor: $purple-600)
+    }
+}
+
+.main-content {
+    text-align: center;
+    padding: 2rem 2.188rem 4rem;
+    max-width: 70rem;
+    margin: 0 auto;
+
+    &__number {
+        margin: 80px auto 4rem;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        margin-bottom: $space-800;
+
+        @media screen and (min-width: 48rem) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    &__text {
+        max-inline-size: 45ch;
+        margin: 0 auto;
+    }
+
+    &__img {
+        border-radius: 8px;
+    }
+
+    &__highlight {
+        font-size: $fs-subtitle;
+        font-weight: 900;
+        letter-spacing: 0.33em;
+        text-transform: uppercase;
+        color: $cyan-600;
+        margin-bottom: $space-200;
+    }
+
+    &__title {
+        @include heading($fontSize: $fs-h2, $color: $slate-900);
+        margin-bottom: $space-400;
+    }
+
+    &__description {
+        font-size: 1rem;
+    }
+}
+
+.footer {
+    background-image: url("/public/assets/mobile/image-footer.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: multiply;
+    background-position: center;
+    background-color: $cyan-600;
+    
+    @media screen and (min-width: 48rem) {
+        background-image: url("/public/assets/tablet/image-footer.jpg");
+    }
+
+    @media screen and (min-width: 90rem) {
+        background-image: url("/public/assets/desktop/image-footer.jpg");
+    }
+
+    &__number {
+        margin: 80px auto -30px;
+        background-color: $white;
+        z-index: 1;
+        position: relative;
+        bottom: 30px;
+    }
+
+    &__content {
+        padding: 4rem 2rem;
+        text-align: center;
+        max-inline-size: 53ch;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+        gap: $space-300;
+
+        @media screen and (min-width: 90rem) {
+            max-inline-size: none;
+            max-width: 70rem;
+            display: grid;
+            grid-template-columns: 1.5fr 1.3fr 1fr;
+            justify-items: center;
+            align-items: start;
+            text-align: start;
+            gap: $space-400;
+        }
+    }
+
+    &__title {
+        @include heading($fontSize: $fs-h2, $color: $white);
+    }
+    
+    &__description {
+        color: $white;
+    }
+
+    &__btn {
+        @include button($bgColor: $purple-600);
+
+        @media screen and (min-width: 90rem) {
+            justify-self: flex-end;
+        }
+    }
+}
+

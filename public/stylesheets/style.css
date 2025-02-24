@@ -1,0 +1,353 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+input, label {
+  line-height: 1.1;
+}
+
+button {
+  line-height: 1.5;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+body {
+  font-family: "Red Hat Display", serif;
+  font-size: clamp(1rem, 0.5rem + 1vw, 1.125rem);
+  background-color: #FAFAFA;
+  color: #87879D;
+}
+
+.logo {
+  margin: 3rem auto 0;
+}
+
+.number {
+  display: grid;
+  place-items: center;
+  position: relative;
+  font-family: "Red Hat Display", serif;
+  font-weight: 900;
+  line-height: 1.5;
+  color: #87879D;
+  border: 1px solid #D1D1DF;
+  border-radius: 9999px;
+  width: 56px;
+  height: 56px;
+}
+
+.number::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  height: 80px;
+  border-right: 1px solid #D1D1DF;
+}
+
+.main {
+  max-width: 94rem;
+  margin: 0 auto;
+}
+
+.hero {
+  padding: 4rem 0 2rem;
+}
+.hero__img-mobile {
+  background-image: url("/public/assets/tablet/image-hero.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: clamp(160px, 40vw, 303px);
+  margin-bottom: 3rem;
+}
+@media screen and (min-width: 90rem) {
+  .hero__img-mobile {
+    display: none;
+  }
+}
+@media screen and (min-width: 90rem) {
+  .hero {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    overflow: hidden;
+  }
+  .hero__img-desktop--left {
+    background-image: url("/public/assets/desktop/image-hero-left.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+    position: relative;
+    left: -130px;
+    height: 90%;
+  }
+  .hero__img-desktop--right {
+    background-image: url("/public/assets/desktop/image-hero-right.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: left;
+    position: relative;
+    right: -130px;
+    height: 90%;
+  }
+}
+.hero__text-content {
+  text-align: center;
+  padding: 0 2.188rem;
+  max-inline-size: 45ch;
+  margin: 0 auto;
+}
+@media screen and (min-width: 90rem) {
+  .hero__text-content {
+    display: inline-block;
+    padding: 0;
+  }
+}
+.hero__title {
+  font-size: clamp(2.5rem, 1rem + 4.16666vw, 4rem);
+  color: #28283D;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+}
+.hero__description {
+  margin-bottom: 1.5rem;
+}
+.hero__buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+@media screen and (min-width: 48rem) {
+  .hero__buttons {
+    flex-direction: row;
+  }
+}
+.hero__download-btn {
+  font-size: 1rem;
+  font-weight: 900;
+  background-color: #4D96A9;
+  color: #FAFAFA;
+  border: transparent;
+  border-radius: 999px;
+  padding: 1rem 2.5rem;
+  transition: 300ms;
+  cursor: pointer;
+}
+.hero__download-btn > .version {
+  color: #8FE3F9;
+}
+.hero__download-btn:is(:hover, :active, :focus) {
+  background-color: #71C0D4;
+}
+.hero__info-btn {
+  font-size: 1rem;
+  font-weight: 900;
+  background-color: #845eb0;
+  color: #FAFAFA;
+  border: transparent;
+  border-radius: 999px;
+  padding: 1rem 2.5rem;
+  transition: 300ms;
+  cursor: pointer;
+}
+.hero__info-btn > .version {
+  color: #D9B8FF;
+}
+.hero__info-btn:is(:hover, :active, :focus) {
+  background-color: #b28cde;
+}
+
+.main-content {
+  text-align: center;
+  padding: 2rem 2.188rem 4rem;
+  max-width: 70rem;
+  margin: 0 auto;
+}
+.main-content__number {
+  margin: 80px auto 4rem;
+}
+.main-content__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 4rem;
+}
+@media screen and (min-width: 48rem) {
+  .main-content__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.main-content__text {
+  max-inline-size: 45ch;
+  margin: 0 auto;
+}
+.main-content__img {
+  border-radius: 8px;
+}
+.main-content__highlight {
+  font-size: clamp(0.75rem, 0.5rem + 0.78125vw, 1rem);
+  font-weight: 900;
+  letter-spacing: 0.33em;
+  text-transform: uppercase;
+  color: #4D96A9;
+  margin-bottom: 1rem;
+}
+.main-content__title {
+  font-size: clamp(2rem, 1rem + 2.60416vw, 2.5rem);
+  color: #28283D;
+  font-weight: 900;
+  margin-bottom: 2rem;
+}
+.main-content__description {
+  font-size: 1rem;
+}
+
+.footer {
+  background-image: url("/public/assets/mobile/image-footer.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: multiply;
+  background-position: center;
+  background-color: #4D96A9;
+}
+@media screen and (min-width: 48rem) {
+  .footer {
+    background-image: url("/public/assets/tablet/image-footer.jpg");
+  }
+}
+@media screen and (min-width: 90rem) {
+  .footer {
+    background-image: url("/public/assets/desktop/image-footer.jpg");
+  }
+}
+.footer__number {
+  margin: 80px auto -30px;
+  background-color: #FAFAFA;
+  z-index: 1;
+  position: relative;
+  bottom: 30px;
+}
+.footer__content {
+  padding: 4rem 2rem;
+  text-align: center;
+  max-inline-size: 53ch;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+@media screen and (min-width: 90rem) {
+  .footer__content {
+    max-inline-size: none;
+    max-width: 70rem;
+    display: grid;
+    grid-template-columns: 1.5fr 1.3fr 1fr;
+    justify-items: center;
+    align-items: start;
+    text-align: start;
+    gap: 2rem;
+  }
+}
+.footer__title {
+  font-size: clamp(2rem, 1rem + 2.60416vw, 2.5rem);
+  color: #FAFAFA;
+  font-weight: 900;
+}
+.footer__description {
+  color: #FAFAFA;
+}
+.footer__btn {
+  font-size: 1rem;
+  font-weight: 900;
+  background-color: #845eb0;
+  color: #FAFAFA;
+  border: transparent;
+  border-radius: 999px;
+  padding: 1rem 2.5rem;
+  transition: 300ms;
+  cursor: pointer;
+}
+.footer__btn > .version {
+  color: #D9B8FF;
+}
+.footer__btn:is(:hover, :active, :focus) {
+  background-color: #b28cde;
+}
+@media screen and (min-width: 90rem) {
+  .footer__btn {
+    justify-self: flex-end;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,36 @@
+@use 'variables' as *;
+
+@mixin button($bgColor: $white) {
+    font-size: $fs-button;
+    font-weight: 900;
+    background-color: $bgColor;
+    color: $white;
+    border: transparent;
+    border-radius: 999px;
+    padding: 1rem 2.5rem;
+    transition: 300ms;
+    cursor: pointer;
+
+    @if $bgColor == $cyan-600 {
+        & > .version {
+            color: $cyan-300;
+        }
+
+        &:is(:hover, :active, :focus) {
+            background-color: $cyan-hover;
+        }
+    } @else if $bgColor == $purple-600 {
+        & > .version {
+            color: $purple-300;
+        }
+        &:is(:hover, :active, :focus) {
+            background-color: $purple-hover;
+        }
+    }
+}
+
+@mixin heading($fontSize, $color: $slate-900) {
+    font-size: $fontSize;
+    color: $color;
+    font-weight: 900;
+}
