@@ -112,72 +112,53 @@ body {
 }
 
 .main {
-  max-width: 94rem;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 .hero {
   padding: 4rem 0 2rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 3rem;
 }
 .hero__img-mobile {
   background-image: url("../../public/assets/tablet/image-hero.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  min-height: clamp(160px, 40vw, 303px);
-  margin-bottom: 3rem;
+  height: clamp(10rem, 40vw, 18.9375rem);
+  max-width: 51.25rem;
+  width: 100%;
 }
 @media screen and (min-width: 90rem) {
   .hero__img-mobile {
     display: none;
   }
 }
-@media screen and (min-width: 90rem) {
-  .hero {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    overflow: hidden;
-  }
-  .hero__img-desktop--left {
-    background-image: url("../../public/assets/desktop/image-hero-left.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: right;
-    position: relative;
-    left: -130px;
-    height: 90%;
-  }
-  .hero__img-desktop--right {
-    background-image: url("../../public/assets/desktop/image-hero-right.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: left;
-    position: relative;
-    right: -130px;
-    height: 90%;
-  }
+.hero__img-desktop--left, .hero__img-desktop--right {
+  display: none;
 }
 .hero__text-content {
   text-align: center;
   padding: 0 2.188rem;
   max-inline-size: 45ch;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, -25rem + 49vw, 2rem);
 }
 @media screen and (min-width: 90rem) {
   .hero__text-content {
-    display: inline-block;
-    padding: 0;
+    padding: 1.5rem 0;
   }
 }
 .hero__title {
   font-size: clamp(2.5rem, 1rem + 4.16666vw, 4rem);
   color: #28283D;
   font-weight: 900;
-  margin-bottom: 1.5rem;
-}
-.hero__description {
-  margin-bottom: 1.5rem;
 }
 .hero__buttons {
   display: flex;
@@ -224,6 +205,33 @@ body {
 }
 .hero__info-btn:is(:hover, :active, :focus) {
   background-color: #b28cde;
+}
+@media screen and (min-width: 90rem) {
+  .hero {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    overflow: visible;
+    max-width: 90rem;
+  }
+  .hero__img-desktop--left, .hero__img-desktop--right {
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 18.9375rem;
+  }
+  .hero__img-desktop--left {
+    background-image: url("../../public/assets/desktop/image-hero-left.png");
+    background-position: left;
+    align-self: flex-start;
+    margin-left: -25px;
+  }
+  .hero__img-desktop--right {
+    background-image: url("../../public/assets/desktop/image-hero-right.png");
+    background-position: right;
+    align-self: flex-end;
+    margin-right: -25px;
+  }
 }
 
 .main-content {

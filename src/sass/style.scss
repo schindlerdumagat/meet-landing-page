@@ -36,52 +36,34 @@ body {
 }
 
 .main {
-    max-width: 94rem;
     margin: 0 auto;
+    overflow: hidden;
 }
 
 .hero {
     padding: $space-800 0 $space-400;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: $space-600;
 
     &__img-mobile {
         background-image: url("../../public/assets/tablet/image-hero.png");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
-        min-height: clamp(160px, 40vw, 303px);
-        margin-bottom: $space-600;
+        height: clamp(10rem, 40vw, 18.9375rem);
+        max-width: 51.25rem;
+        width: 100%;
 
         @media screen and (min-width: 90rem) {
             display: none;
         }
     }
 
-    @media screen and (min-width: 90rem) {
-
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: $space-400;
-        overflow: hidden;
-
-        &__img-desktop--left {
-            background-image: url("../../public/assets/desktop/image-hero-left.png");
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: right;
-            position: relative;
-            left: -130px;
-            height: 90%;
-        }
-        
-        &__img-desktop--right {
-            background-image: url("../../public/assets/desktop/image-hero-right.png");
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: left;
-            position: relative;
-            right: -130px;
-            height: 90%;
-        }
+    &__img-desktop--left, &__img-desktop--right {
+        display: none;
     }
 
     &__text-content {
@@ -89,20 +71,17 @@ body {
         padding: 0 2.188rem;
         max-inline-size: 45ch;
         margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: clamp($space-300, -25rem + 49vw, $space-400);
 
         @media screen and (min-width: 90rem) {
-            display: inline-block;
-            padding: 0;
+            padding: $space-300 0;
         }
     }
 
     &__title {
         @include heading($fontSize: $fs-h1, $color: $slate-900);
-        margin-bottom: $space-300;
-    }
-
-    &__description {
-        margin-bottom: 1.5rem;
     }
 
     &__buttons {
@@ -123,6 +102,35 @@ body {
 
     &__info-btn {
         @include button($bgColor: $purple-600)
+    }
+
+    @media screen and (min-width: 90rem) {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: $space-400;
+        overflow: visible;
+        max-width: 90rem;
+
+        &__img-desktop--left, &__img-desktop--right {
+            display: inline-block;
+            background-repeat: no-repeat;
+            background-size: contain;
+            height: 18.9375rem;
+        }
+
+        &__img-desktop--left {
+            background-image: url("../../public/assets/desktop/image-hero-left.png");
+            background-position: left;
+            align-self: flex-start;
+            margin-left: -25px;
+        }
+        
+        &__img-desktop--right {
+            background-image: url("../../public/assets/desktop/image-hero-right.png");
+            background-position: right;
+            align-self: flex-end;
+            margin-right: -25px;
+        }
     }
 }
 
