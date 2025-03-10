@@ -9,6 +9,8 @@
     border-radius: 999px;
     padding: 1rem 2.5rem;
     transition: 300ms;
+    text-decoration: none;
+    outline: inherit;
     cursor: pointer;
 
     @if $bgColor == $cyan-600 {
