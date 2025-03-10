@@ -235,7 +235,7 @@ body {
 
 .main-content {
   text-align: center;
-  padding: 2rem 2.188rem 4rem;
+  padding: 2rem 2rem 4rem;
   max-width: 70rem;
   margin: 0 auto;
 }
@@ -278,14 +278,33 @@ body {
   font-size: 1rem;
 }
 
-.footer {
+.footer-cta__number {
+  position: relative;
+  margin: 80px auto -30px;
+  background-color: #FAFAFA;
+  z-index: 1;
+}
+.footer-cta__content {
   position: relative;
   background-image: url("../../public/assets/mobile/image-footer.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
+  padding: 4rem 2rem;
+  text-align: center;
+  margin: 0 auto;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  gap: 1.5rem;
 }
-.footer::before {
+.footer-cta__content * {
+  z-index: 0;
+  max-inline-size: 53ch;
+}
+.footer-cta__content::before {
   content: "";
   position: absolute;
   inset: 0 0 0 0;
@@ -293,39 +312,14 @@ body {
   opacity: 0.9;
 }
 @media screen and (min-width: 48rem) {
-  .footer {
+  .footer-cta__content {
     background-image: url("../../public/assets/tablet/image-footer.jpg");
   }
 }
 @media screen and (min-width: 90rem) {
-  .footer {
+  .footer-cta__content {
     background-image: url("../../public/assets/desktop/image-footer.jpg");
-  }
-}
-.footer__number {
-  margin: 80px auto -30px;
-  background-color: #FAFAFA;
-  position: relative;
-  bottom: 30px;
-}
-.footer__content {
-  padding: 4rem 2rem;
-  text-align: center;
-  max-inline-size: 53ch;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-items: center;
-  align-items: center;
-  gap: 1.5rem;
-}
-.footer__content * {
-  z-index: 0;
-}
-@media screen and (min-width: 90rem) {
-  .footer__content {
-    max-inline-size: none;
-    max-width: 70rem;
+    padding: 7rem 11.112%;
     display: grid;
     grid-template-columns: 1.5fr 1.3fr 1fr;
     justify-items: center;
@@ -334,15 +328,15 @@ body {
     gap: 2rem;
   }
 }
-.footer__title {
+.footer-cta__title {
   font-size: clamp(2rem, 1rem + 2.60416vw, 2.5rem);
   color: #FAFAFA;
   font-weight: 900;
 }
-.footer__description {
+.footer-cta__description {
   color: #FAFAFA;
 }
-.footer__btn {
+.footer-cta__btn {
   font-size: 1rem;
   font-weight: 900;
   background-color: #845eb0;
@@ -353,14 +347,14 @@ body {
   transition: 300ms;
   cursor: pointer;
 }
-.footer__btn > .version {
+.footer-cta__btn > .version {
   color: #D9B8FF;
 }
-.footer__btn:is(:hover, :active, :focus) {
+.footer-cta__btn:is(:hover, :active, :focus) {
   background-color: #b28cde;
 }
 @media screen and (min-width: 90rem) {
-  .footer__btn {
+  .footer-cta__btn {
     justify-self: flex-end;
   }
 }
