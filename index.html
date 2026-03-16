@@ -7,25 +7,32 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
   
   <title>Frontend Mentor | Meet landing page</title>
+
+  <link rel="preload" href="assets/fonts/red-hat-display-v21-latin-500.woff2" as="font" type="font/woffs" crossorigin="anonymous">
+  <link rel="preload" href="assets/fonts/red-hat-display-v21-latin-900.woff2" as="font" type="font/woffs" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-  Meet makes it easy to connect with others face-to-face virtually and collaborate across any device.
+  
+  <header>
+    <img class="logo" src="assets/logo.svg" alt="meet" width="118" height="28">
+  </header>
+  <main>
+    <section class="hero">
+      <img class="hero__banner" src="assets/tablet/image-hero.png" alt="" role="presentation" width="820" height="303">
+      <img src="assets/desktop/image-hero-left.png" alt="" class="hero__banner--desktop hero__banner--left" alt="" role="presentation" width="394" height="303">
+      <div class="hero__text">
+        <h1 class="hero__title">Group Chat for Everyone</h1>
+        <p class="description">Meet makes it easy to connect with others face-to-face virtually and collaborate across any device.</p>
+        <div class="hero__links">
+          <a href="#" class="hero__link btn">Download <span class="hero__link-version">v1.3</span></a>
+          <a href="#" class="hero__link btn btn--purple">What is it?</a>
+        </div>
+      </div>
+      <img src="assets/desktop/image-hero-right.png" alt="" class="hero__banner--desktop hero__banner--right" alt="" role="presentation" width="394" height="303">
+    </section>
+  </main>
 
-  Download v1.3
-  What is it?
-
-  01
-  Built for modern use
-
-  Smarter meetings, all in one place
-
-  Send messages, share files, show your screen, and record your meetings — all in one 
-  workspace. Control who can join with invite-only team access, data encryption, and data export.
-
-  02
-  Experience more together
-  Stay connected with reliable HD meetings and unlimited one-on-one and group video sessions.
-
-  Download v1.3
 </body>
 </html>

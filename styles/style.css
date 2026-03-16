@@ -1,0 +1,227 @@
+/* CSS RESETS */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'] {
+  list-style: none;
+}
+
+h1, h2 {
+  line-height: 1.1;    /* Set shorter line heights on headings and interactive elements */
+  text-wrap: balance;  /* Balance text wrapping on headings */
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* FONTS */
+
+/* red-hat-display-500 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Red Hat Display';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../assets/fonts/red-hat-display-v21-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* red-hat-display-900 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Red Hat Display';
+  font-style: normal;
+  font-weight: 900;
+  src: url('../assets/fonts/red-hat-display-v21-latin-900.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* CUSTOM VARIABLES */
+
+:root {
+
+    /* COLORS */
+
+    --clr-cyan-600: hsl(192, 37%, 48%);
+    --clr-cyan-300: hsl(192, 90%, 77%);
+    --clr-purple-600: hsl(268, 34%, 53%);
+    --clr-purple-300: hsl(268, 100%, 86%);
+    --clr-slate-900: hsl(240, 21%, 20%);
+    --clr-slate-600: hsl(240, 10%, 57%);
+    --clr-slate-300: hsl(240, 18%, 85%);
+    --clr-white: hsl(0, 0%, 98%);
+
+    /* TYPOGRAPHY */
+
+    --ff-main: "Red Hat Display", sans-serif;
+    --fs-heading-1: clamp(2.5rem, 1.9718rem + 2.2535vw, 4rem);
+    --fs-heading-2: clamp(2rem, 1.771rem + 0.96vw, 2.5rem);
+    --fs-body: clamp(1rem, 0.8571rem + 0.2976vw, 1.125rem);
+    --fs-button: 1rem;
+
+    /* SPACINGS */
+
+    --space-1400: 7rem;
+    --space-1000: 5rem;
+    --space-900: 4.5rem;
+    --space-800: 4rem;
+    --space-700: 3.5rem;
+    --space-600: 3rem;
+    --space-500: 2.5rem;
+    --space-400: 2rem;
+    --space-300: 1.5rem;
+    --space-200: 1rem;
+    --space-100: .5rem;
+    --space-50: .25rem;
+
+}
+
+body {
+  font-family: var(--ff-main);
+  font-size: var(--fs-body);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--clr-slate-600);
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+.logo {
+    margin: 0 auto;
+    margin-block-start: clamp(var(--space-600), 0.7143rem + 4.7619vw, var(--space-1000));
+}
+
+.hero {
+    position: relative;
+    padding-block-start: var(--space-800);
+    padding-block-end: clamp(var(--space-400), 0.0916rem + 8.1425vw, var(--space-800));
+    max-width: 90rem;
+    margin: 0 auto;
+}
+
+.hero__banner {
+    height: clamp(10rem, 1.4719rem + 36.3868vw, 18.9375rem);
+    object-fit: cover;
+    margin-block-end: clamp(3rem, 1.5687rem + 6.1069vw, 4.5rem);
+    margin-inline: auto;
+}
+
+.hero__banner--desktop {
+    display: none;
+}
+
+.hero__banner--left {
+    position: absolute;
+    left: -1.5625rem;
+}
+
+.hero__banner--right {
+    position: absolute;
+    bottom: 4.0625rem;
+    right: -1.25rem;
+}
+
+.hero__text {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.5rem, 0.9286rem + 1.1905vw, 2rem);
+    padding-inline: clamp(var(--space-400), -1.4286rem + 7.1429vw, var(--space-1000));
+    text-align: center;
+    max-width: 28rem;
+    margin: 0 auto;
+}
+
+.hero__title {
+    font-size: var(--fs-heading-1);
+    font-weight: 900;
+    color: var(--clr-slate-900);
+}
+
+.hero__links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-200);
+}
+
+.hero__link-version {
+    color: var(--clr-cyan-300);
+}
+
+.btn {
+    font-size: var(--fs-button);
+    font-weight: 900;
+    text-decoration: none;
+    color: var(--clr-white);
+    background-color: var(--clr-cyan-600);
+    padding: 1em 2.5em;
+    border-radius: 1.8125rem;
+    transition: 300ms background-color;
+}
+
+.btn--purple {
+    background-color: var(--clr-purple-600);
+}
+
+.btn:hover {
+    background-color: hsl(192, 54%, 64%);
+}
+
+.btn--purple:hover {
+    background-color: hsl(268, 55%, 71%);
+}
+
+@media screen and (min-width: 48rem) {
+
+    .hero__text {
+        padding: 0;
+    }
+
+    .hero__links {
+        flex-direction: row;
+    }
+}
+
+@media screen and (min-width: 90rem) {
+
+    .hero__banner {
+        display: none;
+    }
+
+    .hero__banner--desktop {
+        display: block;
+    }
+
+    .hero__text {
+        padding-block: var(--space-300);
+    }
+
+}
