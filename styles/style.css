@@ -139,13 +139,13 @@ body {
 
 .hero__banner--left {
     position: absolute;
-    left: -1.5625rem;
+    left: -1.6rem;
 }
 
 .hero__banner--right {
     position: absolute;
-    bottom: 4.0625rem;
-    right: -1.25rem;
+    bottom: 0;
+    right: -1.6rem;
 }
 
 .hero__text {
@@ -185,6 +185,8 @@ body {
     padding: 1em 2.5em;
     border-radius: 1.8125rem;
     transition: 300ms background-color;
+    outline: 2px solid;
+    outline-offset: 2px;
 }
 
 .btn--purple {
@@ -197,6 +199,14 @@ body {
 
 .btn--purple:hover {
     background-color: hsl(268, 55%, 71%);
+}
+
+.btn:focus-visible {
+    outline-color: var(--clr-cyan-600);
+}
+
+.btn--purple:focus-visible {
+    outline-color: var(--clr-purple-600);
 }
 
 .number {
@@ -222,7 +232,7 @@ body {
 }
 
 @media screen and (min-width: 48rem) {
-
+    
     .hero__text {
         padding: 0;
     }
@@ -233,6 +243,10 @@ body {
 }
 
 @media screen and (min-width: 90rem) {
+
+    .hero {
+        padding-block-end: 0;
+    }
 
     .hero__banner {
         display: none;
