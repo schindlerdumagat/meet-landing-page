@@ -88,6 +88,7 @@ picture {
 
     /* SPACINGS */
 
+    --space-2000: 10rem;
     --space-1400: 7rem;
     --space-1000: 5rem;
     --space-900: 4.5rem;
@@ -100,6 +101,10 @@ picture {
     --space-200: 1rem;
     --space-100: .5rem;
     --space-50: .25rem;
+
+    /* BORDER RADIUS */
+
+    --rounded-sm: 8px;
 
 }
 
@@ -176,6 +181,50 @@ body {
     color: var(--clr-cyan-300);
 }
 
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-800);
+    padding-block-start: clamp(var(--space-400), 0.5687rem + 6.1069vw, var(--space-700));
+    padding-block-end: clamp(var(--space-800), 3.4286rem + 1.1905vw, var(--space-900));
+}
+
+.main__images {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(var(--space-200), 0.6479rem + 1.5023vw, var(--space-400));
+}
+
+.main__image {
+    border-radius: var(--rounded-sm);
+}
+
+.main__text-content {
+    text-align: center;
+    margin: 0 auto;
+    max-width: clamp(31.5rem, 28.6429rem + 5.9524vw, 34rem);
+    width: 100%;
+}
+
+.main__small-title {
+    display: block;
+    font-size: clamp(0.75rem, 0.662rem + 0.3756vw, 1rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--clr-cyan-600);
+    margin-block-end: var(--space-200);
+}
+
+.main__title {
+    font-size: var(--fs-heading-2);
+    font-weight: 900;
+    color: var(--clr-slate-900);
+    margin-block-end: var(--space-400);
+}
+
 .btn {
     font-size: var(--fs-button);
     font-weight: 900;
@@ -185,7 +234,7 @@ body {
     padding: 1em 2.5em;
     border-radius: 1.8125rem;
     transition: 300ms background-color;
-    outline: 2px solid;
+    outline: 2px solid transparent;
     outline-offset: 2px;
 }
 
@@ -231,6 +280,10 @@ body {
     border: 1px solid var(--clr-slate-300);
 }
 
+.wrapper {
+    padding-inline: clamp(var(--space-400), -7.1429rem + 19.0476vw, var(--space-2000));
+}
+
 @media screen and (min-width: 48rem) {
     
     .hero__text {
@@ -239,6 +292,10 @@ body {
 
     .hero__links {
         flex-direction: row;
+    }
+
+    .main__images {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
